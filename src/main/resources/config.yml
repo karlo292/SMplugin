@@ -1,0 +1,4 @@
+#Set ChatCooldown to false if you dont want to have chat cooldown
+ChatCooldown: true
+#If chatCooldown is true this will work, type it in seconds (ex. 5 means 5 seconds)
+ChatCooldownTimer: 1

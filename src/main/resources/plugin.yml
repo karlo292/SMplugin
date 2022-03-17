@@ -1,0 +1,48 @@
+name: TestPlugin
+version: '${project.version}'
+main: me.karlo292.testplugin.TestPlugin
+api-version: 1.17
+authors: [ karlo292 ]
+description: Made by karlo292
+commands:
+  godmode:
+    description: Makes you invincible
+    usage: /<command>
+
+  hunger:
+    description: Fills your hunger bar
+    usage: /<command>
+    aliases: [feed,food]
+
+  gms:
+    description: Sets gamemode of player to survival
+    usage: /<command>
+    aliases: [gmsurvival]
+
+  gmc:
+    description: Sets gamemode of player to creative
+    usage: /<command>
+    aliases: [gmcreative]
+
+  gmsp:
+    description: Sets gamemode of player to spectator
+    usage: /<command>
+    aliases: [gmspectator]
+
+  gma:
+    description: Sets gamemode of player to adventure
+    usage: /<command>
+    aliases: [gmadventure]
+
+  reloadconfig:
+    description: Reloads config
+    usage: /<command>
+    aliases: [rlconfig, rc]
+
+  trait:
+    description: Give yourself trait
+    usage: /<command>
+
+  playtime:
+    description: Check your playtime on server
+    usage: /<command>
