@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>TestPlugin</name>
+    <name>SMPlugin</name>
 
     <description>Made by karlo292</description>
     <properties>
