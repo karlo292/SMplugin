@@ -24,6 +24,7 @@ public class ChatCooldown implements Listener {
     public void onChat(AsyncPlayerChatEvent e){
         Player player = e.getPlayer();
 
+
         if(!this.cooldown.containsKey(player.getUniqueId())){
             this.cooldown.put(player.getUniqueId(),System.currentTimeMillis());
 

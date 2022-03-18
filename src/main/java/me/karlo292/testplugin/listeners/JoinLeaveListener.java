@@ -1,11 +1,7 @@
 package me.karlo292.testplugin.listeners;
 
-import me.karlo292.testplugin.customConfig.customConfig;
 import me.karlo292.testplugin.customConfig.customPlayerConfig;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +11,6 @@ import me.karlo292.testplugin.TestPlugin;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.File;
 import java.util.UUID;
 
 
@@ -48,7 +43,7 @@ public class JoinLeaveListener implements Listener {
         }
 
         //PLAYTIME
-        if(!customPlayerConfig.get().contains("playtimeSeconds")){
+        /*if(!customPlayerConfig.get().contains("playtimeSeconds")){
             customPlayerConfig.get().addDefault("playtimeSeconds", 0);
         }
         if(!customPlayerConfig.get().contains("playtimeMinutes")){
@@ -99,6 +94,8 @@ public class JoinLeaveListener implements Listener {
 
 
 
+
+         */
     }
 
 

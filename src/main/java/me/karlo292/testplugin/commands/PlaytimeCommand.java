@@ -1,5 +1,6 @@
 package me.karlo292.testplugin.commands;
 
+import me.karlo292.testplugin.TestPlugin;
 import me.karlo292.testplugin.customConfig.customPlayerConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,35 +19,21 @@ public class PlaytimeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player p){
-            if(args.length == 0){
-                customPlayerConfig.setup();
-                int playtimeDays =  (int) customPlayerConfig.get().getInt("playtimeDays");
-                int playtimeHours = (int) customPlayerConfig.get().getInt("playtimeHours");
-                int playtimeMinutes = (int) customPlayerConfig.get().getInt("playtimeMinutes");
-                int playtimeSeconds = (int) customPlayerConfig.get().getInt("playtimeSeconds");
+            customPlayerConfig.setup();
+
+                int playtimeDays =  customPlayerConfig.get().getInt("playtimeDays");
+                int playtimeHours = customPlayerConfig.get().getInt("playtimeHours");
+                int playtimeMinutes = customPlayerConfig.get().getInt("playtimeMinutes");
+                int playtimeSeconds = customPlayerConfig.get().getInt("playtimeSeconds");
                 p.sendMessage(ChatColor.GREEN + "Your playtime is " + playtimeDays + "d, " + playtimeHours + "h, " + playtimeMinutes + "m and " + playtimeSeconds + "s");
+                customPlayerConfig.save();
                 return true;
 
-            }else{
-                if(Bukkit.getPlayer(args[0]) == null){
-                    p.sendMessage(ChatColor.RED + "That player never played on server before");
-                    return true;
-                }
-                UUID targetPlayerUUID = Bukkit.getServer().getPlayer(args[0]).getUniqueId();
-                File file = new File(Bukkit.getServer().getPluginManager().getPlugin("TestPlugin").getDataFolder(), "PlayerDatabase" + File.separator + targetPlayerUUID.toString());
 
-                if(!file.exists()){
-                    p.sendMessage(ChatColor.RED + "That player never played on server before");
-                    return true;
-                }
-                FileConfiguration customFile = YamlConfiguration.loadConfiguration(file);
-                int playtimeDays =  (int) customFile.getInt("playtimeDays");
-                int playtimeHours = (int) customFile.getInt("playtimeHours");
-                int playtimeMinutes = (int) customFile.getInt("playtimeMinutes");
-                int playtimeSeconds = (int) customFile.getInt("playtimeSeconds");
-                p.sendMessage(ChatColor.GREEN + "Playtime of " + args[0] + " is " + playtimeDays + "d, " + playtimeHours + "h, " + playtimeMinutes + "m and " + playtimeSeconds + "s");
+
             }
-        }
+
+
 
         return true;
     }

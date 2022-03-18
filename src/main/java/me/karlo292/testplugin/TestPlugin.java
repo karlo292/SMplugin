@@ -1,20 +1,15 @@
 package me.karlo292.testplugin;
 
 import me.karlo292.testplugin.commands.*;
-import me.karlo292.testplugin.customConfig.customConfig;
 import me.karlo292.testplugin.listeners.*;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.Listener;
+import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 
 public final class TestPlugin extends JavaPlugin {
 
     public static TestPlugin plugin;
-
+    public static Server server;
 
     @Override
     public void onEnable() {
@@ -30,15 +25,11 @@ public final class TestPlugin extends JavaPlugin {
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
-        customConfig.setup();
-        customConfig.get().options().copyDefaults(true);
-        customConfig.save();
 
-        //getServer().getPluginManager().registerEvents(new XPBottleBreakListener(),this);
-        //getServer().getPluginManager().registerEvents(new SheepShearListener(), this);
+
+
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
-        //getServer().getPluginManager().registerEvents(new BlockBreakListener(),this);
         getServer().getPluginManager().registerEvents(new ChatCooldown(),this);
 
 
@@ -47,7 +38,7 @@ public final class TestPlugin extends JavaPlugin {
         getCommand("hunger").setExecutor(new FeedCommand());
         getCommand("trait").setExecutor(new TraitCommand());
         //getCommand("tpa").setExecutor(new TeleportCommand()); IN DEVELOPMENT
-        getCommand("playtime").setExecutor(new PlaytimeCommand());
+        //getCommand("playtime").setExecutor(new PlaytimeCommand());
 
         //GAMEMODE
         getCommand("gms").setExecutor(new GamemodeCommandSurvival());
